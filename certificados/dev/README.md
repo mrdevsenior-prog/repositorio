@@ -4,6 +4,8 @@ Los archivos `.cer` son certificados públicos exportados de los JKS renovados l
 
 Los ocho archivos con nombre de microservicio corresponden a `ms-auth-token-generator`, `ms-auth-token-validator`, `ms-authorizer`, `ms-cards`, `ms-login`, `ms-maintenance-window`, `ms-products` y `ms-publications`. Los dos archivos `ms-login-*-legacy.cer` corresponden a otros JKS encontrados en los recursos de `ms-login`; su uso en DEV no se ha confirmado. Se conservaron sus claves originales en los JKS locales.
 
+`truststore-generator-solo.p12` contiene únicamente el certificado público del generador, con alias `ms-auth-token-generator` y contraseña `changeit`. No contiene clave privada. No sustituye el truststore completo de `ms-login`, porque no incluye la confianza necesaria para Keycloak y otras integraciones. Corresponde a una clave privada expuesta en este repositorio: debe reemplazarse junto con el certificado tras la rotación de la clave.
+
 ## Para DevOps
 
 1. Confirmar qué JKS y nombres DNS utiliza cada despliegue de DEV. Los certificados de servidor incluyen los nombres de servicio declarados en los manifiestos disponibles y variantes Kubernetes habituales. La configuración real del clúster puede ser diferente.
