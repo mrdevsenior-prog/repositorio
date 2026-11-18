@@ -6,6 +6,8 @@ Los ocho archivos con nombre de microservicio corresponden a `ms-auth-token-gene
 
 `truststore-generator-solo.p12` contiene únicamente el certificado público del generador, con alias `ms-auth-token-generator` y contraseña `changeit`. No contiene clave privada. No sustituye el truststore completo de `ms-login`, porque no incluye la confianza necesaria para Keycloak y otras integraciones. Corresponde a una clave privada expuesta en este repositorio: debe reemplazarse junto con el certificado tras la rotación de la clave.
 
+`generador-solo/truststore.jks` contiene la misma única entrada pública en formato JKS y contraseña `changeit`; también es incompleto para `ms-login` y no debe reemplazar el truststore existente.
+
 ## Para DevOps
 
 1. Confirmar qué JKS y nombres DNS utiliza cada despliegue de DEV. Los certificados de servidor incluyen los nombres de servicio declarados en los manifiestos disponibles y variantes Kubernetes habituales. La configuración real del clúster puede ser diferente.
